@@ -1,0 +1,819 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java OOP Exam Study Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #e0e0e0;
+        }
+        .login-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-form button:hover {
+            background-color: #218838;
+        }
+        .main-container {
+            display: none;
+            padding: 20px;
+        }
+        .question-container {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .answer {
+            margin-bottom: 10px;
+        }
+        .example-code {
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 3px solid #28a745;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow: auto;
+        }
+        .example-code code {
+            display: block;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="login-error" style="color: red; display: none;">Invalid credentials</p>
+        </div>
+    </div>
+    <div class="main-container" id="main-content">
+        <h1>Java OOP Exam Study Guide</h1>
+        <div class="question-container">
+            <div class="question">1. Define class & object.</div>
+            <div class="answer">
+                <p>A <strong>class</strong> is a blueprint for creating objects, defining a set of properties and behaviors that the objects created from the class can have. An <strong>object</strong> is an instance of a class.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">2. Syntax of creation of class and object.</div>
+            <div class="answer">
+                <p>The syntax for creating a class and an object is as follows:</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; int x; <br>
+                    &nbsp;&nbsp; void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(x); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj = new MyClass(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.x = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.display(); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">3. Define constructor.</div>
+            <div class="answer">
+                <p>A <strong>constructor</strong> is a special method in a class that is called when an object of that class is instantiated. It initializes the object.</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; int x; <br>
+                    &nbsp;&nbsp; MyClass(int a) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; x = a; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(x); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj = new MyClass(5); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.display(); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">4. Difference between method & constructor.</div>
+            <div class="answer">
+                <p>A <strong>method</strong> performs operations and can be called multiple times, while a <strong>constructor</strong> initializes the object and is called only once during object creation. Constructors do not have a return type, while methods do.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">5. What is the use of the "this" keyword?</div>
+            <div class="answer">
+                <p>The <strong>this</strong> keyword refers to the current instance of the class. It is used to differentiate instance variables from parameters with the same name and to invoke other constructors within the class.</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; int x; <br>
+                    &nbsp;&nbsp; MyClass(int x) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; this.x = x; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(this.x); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">6. What is meant by nested classes?</div>
+            <div class="answer">
+                <p><strong>Nested classes</strong> are classes defined within another class. They can be static or non-static. Non-static nested classes are called inner classes.</p>
+                <div class="example-code">
+                    class OuterClass { <br>
+                    &nbsp;&nbsp; class InnerClass { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Inner class"); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; OuterClass outer = new OuterClass(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; OuterClass.InnerClass inner = outer.new InnerClass(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; inner.display(); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">7. What is the use of static and final keywords?</div>
+            <div class="answer">
+                <p><strong>Static</strong> is used for class-level variables and methods that are shared among all instances. <br>
+                <strong>Final</strong> defines constants and restricts method overriding and inheritance.</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; static int count = 0; <br>
+                    &nbsp;&nbsp; final int MAX_VALUE = 100; <br>
+                    &nbsp;&nbsp; void increment() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; count++; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(count); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">8. List out the access specifiers.</div>
+            <div class="answer">
+                <p>Access specifiers determine the visibility of class members: <br>
+                - <strong>private:</strong> Accessible only within the class. <br>
+                - <strong>default:</strong> Accessible within the same package. <br>
+                - <strong>protected:</strong> Accessible within the same package and subclasses. <br>
+                - <strong>public:</strong> Accessible from anywhere.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">9. What is method overriding?</div>
+            <div class="answer">
+                <p><strong>Method overriding</strong> allows a subclass to provide a specific implementation for a method that is already defined in its superclass. The method signature in the subclass must be the same as in the superclass.</p>
+                <div class="example-code">
+                    class Parent { <br>
+                    &nbsp;&nbsp; void show() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Parent class"); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    class Child extends Parent { <br>
+                    &nbsp;&nbsp; @Override <br>
+                    &nbsp;&nbsp; void show() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Child class"); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; Parent obj = new Child(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.show(); // Output: Child class <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">10. Difference between class & constructor.</div>
+            <div class="answer">
+                <p>A <strong>class</strong> defines the structure and behavior of objects, while a <strong>constructor</strong> initializes the objects of the class. The class is a blueprint, whereas the constructor is a special method used for object creation.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">11. Explain the types of polymorphism.</div>
+            <div class="answer">
+                <p><strong>Polymorphism</strong> allows objects to be treated as instances of their parent class. Types include: <br>
+                - <strong>Compile-time Polymorphism (Method Overloading):</strong> Multiple methods with the same name but different parameters. <br>
+                - <strong>Runtime Polymorphism (Method Overriding):</strong> Overriding methods in a subclass to provide a specific implementation.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">12. Explain compile-time polymorphism (method overloading).</div>
+            <div class="answer">
+                <p><strong>Compile-time polymorphism</strong> or method overloading allows a class to have more than one method with the same name, but with different parameters (type, number, or both).</p>
+                <div class="example-code">
+                    class MathOperation { <br>
+                    &nbsp;&nbsp; int add(int a, int b) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; return a + b; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; double add(double a, double b) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; return a + b; <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MathOperation op = new MathOperation(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(op.add(5, 10)); // Output: 15 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(op.add(5.5, 10.5)); // Output: 16.0 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">13. Explain runtime polymorphism (method overriding).</div>
+            <div class="answer">
+                <p><strong>Runtime polymorphism</strong> or method overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass. The method in the subclass must have the same name, return type, and parameters as in the superclass.</p>
+                <div class="example-code">
+                    class Animal { <br>
+                    &nbsp;&nbsp; void makeSound() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Some sound"); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    class Dog extends Animal { <br>
+                    &nbsp;&nbsp; @Override <br>
+                    &nbsp;&nbsp; void makeSound() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Bark"); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; Animal a = new Dog(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; a.makeSound(); // Output: Bark <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">14. Explain passing arguments by value and reference.</div>
+            <div class="answer">
+                <p><strong>Pass by Value:</strong> A copy of the value is passed to the method. Changes to the parameter do not affect the original value. <br>
+                <strong>Pass by Reference:</strong> The reference to the object is passed. Changes to the object affect the original object.</p>
+                <div class="example-code">
+                    class PassByValue { <br>
+                    &nbsp;&nbsp; void modify(int x) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; x = 10; <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    class PassByReference { <br>
+                    &nbsp;&nbsp; void modify(int[] arr) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; arr[0] = 10; <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; PassByValue obj1 = new PassByValue(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int num = 5; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj1.modify(num); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(num); // Output: 5 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; PassByReference obj2 = new PassByReference(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int[] numbers = {5}; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj2.modify(numbers); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(numbers[0]); // Output: 10 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">15. How to assign one object to another.</div>
+            <div class="answer">
+                <p>To assign one object to another, simply assign the reference of one object to another variable. Both variables will refer to the same object.</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; int x; <br>
+                    &nbsp;&nbsp; void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(x); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj1 = new MyClass(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj1.x = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj2 = obj1; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj2.display(); // Output: 10 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">16. Structure of Java.</div>
+            <div class="answer">
+                <p>The structure of a Java program includes: <br>
+                - <strong>Package Declaration:</strong> `package` keyword to specify the package. <br>
+                - <strong>Import Statements:</strong> `import` keyword to include other classes. <br>
+                - <strong>Class Definition:</strong> Contains fields and methods. <br>
+                - <strong>Main Method:</strong> Entry point of the program: `public static void main(String[] args)`.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">17. Tokens/elements of Java.</div>
+            <div class="answer">
+                <p>Java tokens include: <br>
+                - <strong>Keywords:</strong> Reserved words like `class`, `public`, `static`. <br>
+                - <strong>Identifiers:</strong> Names of variables, methods, and classes. <br>
+                - <strong>Literals:</strong> Constants like `10`, `3.14`, `"Hello"`. <br>
+                - <strong>Operators:</strong> Symbols like `+`, `-`, `*`, `/`. <br>
+                - <strong>Separators:</strong> Symbols like `{`, `}`, `;`, `,`.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">18. What are command-line arguments?</div>
+            <div class="answer">
+                <p><strong>Command-line arguments</strong> are parameters passed to a Java application when it is started from the command line. They are accessed via the `String[] args` parameter in the `main` method.</p>
+                <div class="example-code">
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; for (String arg : args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(arg); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">19. What are the escape sequences of Java?</div>
+            <div class="answer">
+                <p><strong>Escape sequences</strong> are used to represent special characters in strings. They include: <br>
+                - `\n`: Newline <br>
+                - `\t`: Tab <br>
+                - `\\`: Backslash <br>
+                - `\"`: Double quote <br>
+                - `\'`: Single quote</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">20. What is typecasting & type conversion/widening?</div>
+            <div class="answer">
+                <p><strong>Typecasting</strong> is converting one data type to another, either explicitly or implicitly. <br>
+                <strong>Type conversion/widening</strong> is the automatic conversion of a smaller data type to a larger data type.</p>
+                <div class="example-code">
+                    class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int i = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; double d = i; // Widening conversion <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(d); // Output: 10.0 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; double num = 10.5; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int n = (int) num; // Narrowing conversion <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(n); // Output: 10 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">21. Bitwise operators.</div>
+            <div class="answer">
+                <p><strong>Bitwise operators</strong> perform operations on the binary representations of integers. They include: <br>
+                - `&`: AND <br>
+                - `|`: OR <br>
+                - `^`: XOR <br>
+                - `~`: NOT <br>
+                - `<<`: Left shift <br>
+                - `>>`: Right shift <br>
+                - `>>>`: Unsigned right shift</p>
+                <div class="example-code">
+                    class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int a = 5; // 0101 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int b = 3; // 0011 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(a & b); // Output: 1 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(a | b); // Output: 7 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(a ^ b); // Output: 6 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(~a); // Output: -6 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">22. What is the ternary/conditional operator?</div>
+            <div class="answer">
+                <p>The <strong>ternary operator</strong> is a shorthand for the `if-else` statement. It has the form: <br>
+                <code>condition ? value_if_true : value_if_false</code></p>
+                <div class="example-code">
+                    class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int a = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; String result = (a > 5) ? "Greater" : "Smaller"; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(result); // Output: Greater <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">23. What is the use of the final keyword?</div>
+            <div class="answer">
+                <p>The <strong>final</strong> keyword is used to define constants and to prevent method overriding and inheritance. <br>
+                - <strong>Final Variables:</strong> Constants whose values cannot be changed. <br>
+                - <strong>Final Methods:</strong> Methods that cannot be overridden. <br>
+                - <strong>Final Classes:</strong> Classes that cannot be subclassed.</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; final int x = 10; <br>
+                    &nbsp;&nbsp; final void display() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(x); <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj = new MyClass(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.display(); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">24. Write about break and continue keywords.</div>
+            <div class="answer">
+                <p><strong>Break</strong> terminates the nearest enclosing loop or switch statement. <br>
+                <strong>Continue</strong> skips the current iteration of the loop and proceeds to the next iteration.</p>
+                <div class="example-code">
+                    class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i < 5; i++) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (i == 2) break; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i < 5; i++) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (i == 2) continue; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">25. Difference between '==' and 'equals()' method.</div>
+            <div class="answer">
+                <p><strong>==</strong> compares references to check if two objects refer to the same instance. <br>
+                <strong>equals()</strong> compares the actual content of the objects. For custom objects, you need to override the `equals()` method to define what equality means.</p>
+                <div class="example-code">
+                    class MyClass { <br>
+                    &nbsp;&nbsp; int x; <br>
+                    &nbsp;&nbsp; MyClass(int x) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; this.x = x; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; @Override <br>
+                    &nbsp;&nbsp; public boolean equals(Object obj) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; if (this == obj) return true; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; if (obj == null || getClass() != obj.getClass()) return false; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass myClass = (MyClass) obj; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; return x == myClass.x; <br>
+                    &nbsp;&nbsp; } <br>
+                    } <br>
+                    public class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj1 = new MyClass(5); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; MyClass obj2 = new MyClass(5); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(obj1 == obj2); // Output: false <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(obj1.equals(obj2)); // Output: true <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">26. Write about try, catch and finally blocks.</div>
+            <div class="answer">
+                <p><strong>Try:</strong> Contains code that might throw an exception. <br>
+                <strong>Catch:</strong> Handles the exception if it occurs. <br>
+                <strong>Finally:</strong> Contains code that will execute regardless of whether an exception occurs or not.</p>
+                <div class="example-code">
+                    class Main { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; try { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int result = 10 / 0; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } catch (ArithmeticException e) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Cannot divide by zero"); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } finally { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("This block always executes"); <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">27. Explain a program using control statements.</div>
+            <div class="answer">
+                <p>Control statements direct the flow of the program. They include conditional statements and loops.</p>
+                <div class="example-code">
+                    class ControlStatements { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int a = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; // Conditional statement <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; if (a > 5) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a is greater than 5"); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } else { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a is 5 or less"); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; // Loop statement <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i < 5; i++) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">28. Explain various parameter passing techniques with example programs.</div>
+            <div class="answer">
+                <p><strong>Parameter passing</strong> in Java is done by value. This means that a copy of the argument's value is passed to the method.</p>
+                <div class="example-code">
+                    class ParameterPassing { <br>
+                    &nbsp;&nbsp; void passByValue(int a) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; a = 20; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; ParameterPassing obj = new ParameterPassing(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int x = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.passByValue(x); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(x); // Output: 10 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">29. Discuss the for-each loop with an example.</div>
+            <div class="answer">
+                <p>The <strong>for-each loop</strong> is used to iterate over arrays or collections. It simplifies the syntax for iterating through elements.</p>
+                <div class="example-code">
+                    class ForEachLoop { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int[] numbers = {1, 2, 3, 4, 5}; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; for (int num : numbers) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(num); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">30. What is recursion? Write an example program to print the factorial of a given number.</div>
+            <div class="answer">
+                <p><strong>Recursion</strong> is a technique where a method calls itself to solve a problem. It's useful for problems that can be divided into similar sub-problems.</p>
+                <div class="example-code">
+                    class Factorial { <br>
+                    &nbsp;&nbsp; static int factorial(int n) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; if (n == 0) return 1; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; else return n * factorial(n - 1); <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int result = factorial(5); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(result); // Output: 120 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">31. What is meant by method overloading? Explain how the 'this' keyword is used in method overloading with an example program.</div>
+            <div class="answer">
+                <p><strong>Method overloading</strong> is defining multiple methods with the same name but different parameters. The <strong>this</strong> keyword can be used to call one constructor from another within the same class.</p>
+                <div class="example-code">
+                    class OverloadingExample { <br>
+                    &nbsp;&nbsp; void display(int a) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Integer: " + a); <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; void display(String a) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("String: " + a); <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; void display(int a, String b) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Integer and String: " + a + ", " + b); <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; OverloadingExample obj = new OverloadingExample(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.display(10); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.display("Hello"); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; obj.display(10, "World"); <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">32. What is the use of static? Discuss various usages of static with an example.</div>
+            <div class="answer">
+                <p>The <strong>static</strong> keyword is used to define class-level fields and methods that belong to the class itself, rather than instances of the class. It is used for variables, methods, and blocks.</p>
+                <div class="example-code">
+                    class StaticExample { <br>
+                    &nbsp;&nbsp; static int count = 0; <br>
+                    &nbsp;&nbsp; static void increment() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; count++; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; StaticExample.increment(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; StaticExample.increment(); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Count: " + StaticExample.count); // Output: Count: 2 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">33. What is the difference between C and Java?</div>
+            <div class="answer">
+                <p><strong>C</strong> is a procedural programming language, while <strong>Java</strong> is an object-oriented programming language. Java includes features like automatic garbage collection, exception handling, and a robust standard library, which are not present in C. Java is platform-independent, whereas C is platform-dependent.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">34. Explain various features of Java (Java buzzwords).</div>
+            <div class="answer">
+                <p>Java's features include: <br>
+                - <strong>Simple:</strong> Easy to learn and use. <br>
+                - <strong>Object-Oriented:</strong> Supports encapsulation, inheritance, and polymorphism. <br>
+                - <strong>Platform-Independent:</strong> Write once, run anywhere. <br>
+                - <strong>Secure:</strong> Provides security features to protect against vulnerabilities. <br>
+                - <strong>Robust:</strong> Strong exception handling and type checking. <br>
+                - <strong>Multithreaded:</strong> Supports concurrent execution of tasks. <br>
+                - <strong>Distributed:</strong> Supports networking and distributed computing. <br>
+                - <strong>High Performance:</strong> Optimized with Just-In-Time (JIT) compiler.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">35. What is type conversion and type casting with a suitable example?</div>
+            <div class="answer">
+                <p><strong>Type conversion</strong> (or widening) is automatically converting a smaller type to a larger type. <strong>Type casting</strong> (or narrowing) is explicitly converting a larger type to a smaller type.</p>
+                <div class="example-code">
+                    class TypeConversion { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; // Type Conversion <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int i = 10; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; double d = i; // Automatic conversion <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(d); // Output: 10.0 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; // Type Casting <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; double e = 9.8; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; int f = (int) e; // Explicit conversion <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(f); // Output: 9 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">36. What are command-line arguments? Explain with an example program.</div>
+            <div class="answer">
+                <p><strong>Command-line arguments</strong> are parameters passed to a Java application at runtime. They are received in the `main` method's `String[] args` array.</p>
+                <div class="example-code">
+                    class CommandLineArgs { <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; for (String arg : args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(arg); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">37. Define constructor. How are constructors created? Give an example.</div>
+            <div class="answer">
+                <p>A <strong>constructor</strong> is a special method that initializes an object. It has the same name as the class and no return type.</p>
+                <div class="example-code">
+                    class ConstructorExample { <br>
+                    &nbsp;&nbsp; int x; <br>
+                    &nbsp;&nbsp; ConstructorExample(int val) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; x = val; <br>
+                    &nbsp;&nbsp; } <br>
+                    &nbsp;&nbsp; public static void main(String[] args) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; ConstructorExample obj = new ConstructorExample(10); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println(obj.x); // Output: 10 <br>
+                    &nbsp;&nbsp; } <br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var error = document.getElementById('login-error');
+            if (username === 'ilovegreatepicmahabharat' && password === 'alexamuchatlu') {
+                document.querySelector('.login-container').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                error.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
